@@ -5,7 +5,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View>
-        <Text>Hello World from Lace!!!</Text>
+        <Text style={{ margin: 16, borderWidth: 2, borderColor: "red" }}>
+          Hello World from Lace!!!
+        </Text>
       </View>
 
       <Text>Another piece of text</Text>
