@@ -65,6 +65,11 @@ export default function App() {
       { text: enteredGoalText, id: Math.random().toString() },
     ]);
   }
+  function deleteGoalHandler(id) {
+    setCourseGoals((currentCourseGoals) => {
+      return currentCourseGoals.filter((goal) => goal.id !== id);
+    });
+  }
 
   return (
     <View style={styles.appContainer}>
@@ -74,7 +79,12 @@ export default function App() {
           data={courseGoals}
           renderItem={(itemData) => {
             itemData.index;
-            return <GoalItem text={itemData.item.text} />;
+            return (
+              <GoalItem
+                text={itemData.item.text}
+                onDeleteItem={deleteGoalHandler}
+              />
+            );
           }}
           alwaysBounceVertical={false}
           keyExtractor={(item, index) => {
