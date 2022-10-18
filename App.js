@@ -59,17 +59,21 @@ export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
   const [modalIsVisbel, setModalIsVisbel] = useState(false);
 
+  function startAddGoalHandler() {
+    setModalIsVisbel(true);
+  }
+  function endAddGoalHandler() {
+    setModalIsVisbel(false);
+  }
   function addGoalHandler(enteredGoalText) {
     // console.log(enteredGoalText);
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       { text: enteredGoalText, id: Math.random().toString() },
     ]);
+    endAddGoalHandler();
   }
 
-  function startAddGoalHandler() {
-    setModalIsVisbel(true);
-  }
   function deleteGoalHandler(id) {
     setCourseGoals((currentCourseGoals) => {
       return currentCourseGoals.filter((goal) => goal.id !== id);
