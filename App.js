@@ -67,7 +67,6 @@ export default function App() {
     setModalIsVisbel(false);
   }
   function addGoalHandler(enteredGoalText) {
-    // console.log(enteredGoalText);
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       { text: enteredGoalText, id: Math.random().toString() },
